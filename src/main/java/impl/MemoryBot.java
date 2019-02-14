@@ -22,7 +22,7 @@ public class MemoryBot implements ChatBot {
     }
 
     @Override
-    public void setScamMessage(String message) {
+    public void setSpamMessage(String message) {
         this.message = message;
     }
 
