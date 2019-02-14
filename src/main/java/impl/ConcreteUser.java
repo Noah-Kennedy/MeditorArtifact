@@ -1,14 +1,11 @@
 package impl;
 
 import interfaces.Mediator;
-import interfaces.User;
+import interfaces.Colleague;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-public class ConcreteUser implements User {
+public class ConcreteUser implements Colleague {
 
     private String username;
     private Mediator mediator;
@@ -24,7 +21,7 @@ public class ConcreteUser implements User {
     }
 
     @Override
-    public List<Message> receive() {
-        return mediator.getMessages(username);
+    public void receive() {
+        mediator.getMessages(username).forEach(System.out::println);
     }
 }

@@ -28,7 +28,6 @@ public class MemoryBot implements ChatBot {
 
     @Override
     public void spam() {
-        usernamesOfTheDamned.addAll(findUnfortunateSouls());
         usernamesOfTheDamned
                 .stream()
                 .map(fool -> new Message(message, fool, username))
@@ -41,5 +40,15 @@ public class MemoryBot implements ChatBot {
                 .stream()
                 .map(Message::getSender)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void send(String content, String recipient) {
+        mediator.postMessage(new Message(content, recipient, username));
+    }
+
+    @Override
+    public void receive() {
+        usernamesOfTheDamned.addAll(findUnfortunateSouls());
     }
 }
