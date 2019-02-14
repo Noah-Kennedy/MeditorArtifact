@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class MemoryBot implements ChatBot {
-    private String message;
     private final String username;
     private final Mediator mediator;
     private final Set<String> usernamesOfTheDamned;
+    private String message;
 
     public MemoryBot(Mediator mediator, String username, String message) {
         this.mediator = mediator;

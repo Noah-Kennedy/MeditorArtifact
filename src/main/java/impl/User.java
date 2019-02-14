@@ -1,7 +1,7 @@
 package impl;
 
-import interfaces.Mediator;
 import interfaces.Colleague;
+import interfaces.Mediator;
 
 public class User implements Colleague {
 

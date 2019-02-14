@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class RespondingBot implements ChatBot {
-    private String message;
     private final String username;
     private final Mediator mediator;
     private final List<String> fools;
+    private String message;
 
     public RespondingBot(Mediator mediator, String username, String message) {
         this.mediator = mediator;
