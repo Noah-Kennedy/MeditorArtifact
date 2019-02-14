@@ -3,13 +3,10 @@ package impl;
 import interfaces.Mediator;
 import interfaces.Colleague;
 
-import java.util.Collections;
-import java.util.List;
-
 public class User implements Colleague {
 
-    private String username;
-    private Mediator mediator;
+    private final String username;
+    private final Mediator mediator;
 
     public User(String username, Mediator mediator) {
         this.username = username;

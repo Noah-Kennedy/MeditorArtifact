@@ -3,16 +3,14 @@ package impl;
 import interfaces.ChatBot;
 import interfaces.Mediator;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RespondingBot implements ChatBot {
     private String message;
-    private String username;
-    private Mediator mediator;
-    private List<String> fools;
+    private final String username;
+    private final Mediator mediator;
+    private final List<String> fools;
 
     public RespondingBot(Mediator mediator, String username, String message) {
         this.mediator = mediator;

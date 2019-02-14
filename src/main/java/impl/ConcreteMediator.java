@@ -4,13 +4,10 @@ import interfaces.Colleague;
 import interfaces.Mediator;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class ConcreteMediator implements Mediator {
-    private List<Colleague> colleagues;
+    private final List<Colleague> colleagues;
 
     public ConcreteMediator() {
         this.colleagues = new ArrayList<>();
