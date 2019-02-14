@@ -5,19 +5,21 @@ import interfaces.Colleague;
 
 import java.util.List;
 
-public class ConcreteUser implements Colleague {
+public class User implements Colleague {
 
     private String username;
     private Mediator mediator;
 
-    public ConcreteUser(String username, Mediator mediator) {
+    public User(String username, Mediator mediator) {
         this.username = username;
         this.mediator = mediator;
     }
 
     @Override
-    public void send(String content, String recipient) {
-        mediator.postMessage(new Message(content, recipient, username));
+    public void send(String content, String recipients...) {
+        for(String recipient : recipients) {
+            mediator.postMessage(new Message(content, recipient, username));
+        }
     }
 
     @Override
