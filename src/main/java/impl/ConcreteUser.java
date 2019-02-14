@@ -1,18 +1,19 @@
 package impl;
 
 import interfaces.Mediator;
+import interfaces.User;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class User implements Colleague {
+public class ConcreteUser implements User {
 
     private String username;
     private Mediator mediator;
 
-    public User(String username, Mediator mediator) {
+    public ConcreteUser(String username, Mediator mediator) {
         this.username = username;
         this.mediator = mediator;
     }
