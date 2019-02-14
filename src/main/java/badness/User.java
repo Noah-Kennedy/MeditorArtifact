@@ -1,4 +1,6 @@
-package interfaces;
+package badness;
+
+import java.util.ArrayList;
 
 public class User {
 
@@ -22,7 +24,7 @@ public class User {
         }
     }
 
-    public String receiveMessage(String message, User from) {
+    public void receiveMessage(String message, User from) {
         System.out.println(from.getName() + " -> " + name + ":\n" + message);
     }
 }

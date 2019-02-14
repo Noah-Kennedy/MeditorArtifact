@@ -1,4 +1,4 @@
-package interfaces;
+package badness;
 
 public class Main {
 
