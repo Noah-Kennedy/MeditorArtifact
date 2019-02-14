@@ -12,6 +12,12 @@ public class RespondingBot implements ChatBot {
     private String username;
     private Mediator mediator;
 
+    public RespondingBot(Mediator mediator, String username, String message) {
+        this.mediator = mediator;
+        this.username = username;
+        this.message = message;
+    }
+
     @Override
     public void setScamMessage(String message) {
         this.message = message;
