@@ -21,10 +21,12 @@ public class ConcreteMediator implements Mediator {
 
     @Override
     public List<Message> getMessages(String username) {
-        return IntStream
-                .range(0, messages.size())
-                .filter(i -> messages.get(i).getReceiver().equals(username))
-                .mapToObj(i -> messages.remove(i))
-                .collect(Collectors.toList());
+        List<Message> userMessages = messages.stream()
+                .filter(message -> message.getReceiver()
+                        .equals(username)).collect(Collectors.toList());
+
+        messages.removeAll(userMessages);
+
+        return userMessages;
     }
 }

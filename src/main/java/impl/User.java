@@ -3,6 +3,7 @@ package impl;
 import interfaces.Mediator;
 import interfaces.Colleague;
 
+import java.util.Collections;
 import java.util.List;
 
 public class User implements Colleague {
@@ -16,14 +17,14 @@ public class User implements Colleague {
     }
 
     @Override
-    public void send(String content, String recipients...) {
-        for(String recipient : recipients) {
-            mediator.postMessage(new Message(content, recipient, username));
-        }
+    public void send(String content, String recipient) {
+        mediator.postMessage(new Message(content, recipient, username));
     }
 
     @Override
     public void receive() {
-        mediator.getMessages(username).forEach(System.out::println);
+        mediator.getMessages(username)
+                .stream()
+                .forEach(System.out::println);
     }
 }
