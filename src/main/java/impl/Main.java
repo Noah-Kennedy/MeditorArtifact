@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Mediator mediator = new ConcreteMediator();
 
-
         Colleague javan = new User("Javan", mediator);
         Colleague ursus = new User("Ursus", mediator);
         Colleague gerlind = new User("Gerlind", mediator);
