@@ -22,9 +22,12 @@ public class User implements Colleague {
     }
 
     @Override
-    public void receive() {
-        mediator.getMessages(username)
-                .stream()
-                .forEach(System.out::println);
+    public void receive(Message message) {
+        System.out.println(message);
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 }

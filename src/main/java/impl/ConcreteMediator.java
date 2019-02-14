@@ -1,32 +1,28 @@
 package impl;
 
+import interfaces.Colleague;
 import interfaces.Mediator;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ConcreteMediator implements Mediator {
-    private ArrayList<Message> messages;
+    private List<Colleague> colleagues;
 
     public ConcreteMediator() {
-        this.messages = new ArrayList<>();
+        this.colleagues = new ArrayList<>();
     }
 
     @Override
     public void postMessage(Message message) {
-        messages.add(message);
+        colleagues.stream().filter(colleague -> colleague.getUsername().equals(message.getReceiver())).forEach(colleague -> colleague.receive(message));
     }
 
     @Override
-    public List<Message> getMessages(String username) {
-        List<Message> userMessages = messages.stream()
-                .filter(message -> message.getReceiver()
-                        .equals(username)).collect(Collectors.toList());
-
-        messages.removeAll(userMessages);
-
-        return userMessages;
+    public void addColleague(Colleague colleague) {
+        colleagues.add(colleague);
     }
 }

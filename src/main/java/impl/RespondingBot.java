@@ -34,21 +34,18 @@ public class RespondingBot implements ChatBot {
                 .forEach(mediator::postMessage);
     }
 
-    private List<String> findUnfortunateSouls() {
-        return mediator
-                .getMessages(username)
-                .stream()
-                .map(Message::getSender)
-                .collect(Collectors.toList());
-    }
-
     @Override
     public void send(String content, String recipient) {
 
     }
 
     @Override
-    public void receive() {
-        fools.addAll(findUnfortunateSouls());
+    public void receive(Message message) {
+        fools.add(message.getSender());
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 }

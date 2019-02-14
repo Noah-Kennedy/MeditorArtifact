@@ -34,21 +34,18 @@ public class MemoryBot implements ChatBot {
                 .forEach(mediator::postMessage);
     }
 
-    private List<String> findUnfortunateSouls() {
-        return mediator
-                .getMessages(username)
-                .stream()
-                .map(Message::getSender)
-                .collect(Collectors.toList());
-    }
-
     @Override
     public void send(String content, String recipient) {
         mediator.postMessage(new Message(content, recipient, username));
     }
 
     @Override
-    public void receive() {
-        usernamesOfTheDamned.addAll(findUnfortunateSouls());
+    public void receive(Message message) {
+        usernamesOfTheDamned.add(message.getSender());
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 }

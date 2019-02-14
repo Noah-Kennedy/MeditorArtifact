@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface Colleague {
     void send(String content, String recipient);
-    void receive();
+    void receive(Message message);
+    String getUsername();
 }
